@@ -1,0 +1,353 @@
+@font-face {
+  /* font-display: swap; */
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 500;
+  src: url("../font/IRANSansWeb_Bold.f18db7b4.eot");
+  src: url("../font/IRANSansWeb_Bold.94bdf556.woff2") format("woff2"),url("../font/IRANSansWeb_Bold.dd12fb6a.woff") format("woff"),url("font/IRANSansWeb_Bold.e65c9d52.ttf") format("truetype")
+}
+
+
+
+body{
+  background-color: rgb(129, 129, 129);
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gird-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px 50px;
+  column-gap: 10px;
+  /* justify-items: center; */
+  align-items: center;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color:  rgb(238 253 13 / 90%);
+  text-align: center;
+  margin-top: 30px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  /* border: solid; */
+}
+
+.border-rad{
+  border-radius: 0px 7px 7px 0px !important;
+}
+
+.par1{
+  border-radius: 20px;
+  margin-top: 32px;
+  font-size: 30px;
+
+}
+
+.main-title div{
+  border-radius: 20px;
+}
+
+.f-fa{
+  font-family:'IRANSans';
+  direction: rtl;
+}
+
+.farsi11{
+  font-family:'IRANSans'!important;
+}
+
+.div-input{
+  display: flex;
+  /* margin-left: 20px; */
+}
+
+.div-err{
+  margin: auto;
+  border-radius: 30px;
+  height: 12vh;
+  width: 50%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255 159 159 / 71%);
+}
+.span{
+  padding: 15px 40px;
+  border-radius: 12px;
+  font-size: 20px;
+  color: rgb(158 0 0);
+}
+
+.div-suc{
+  margin: auto;
+  border-radius: 30px;
+  height: 12vh;
+  border: solid 2px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0 126 5);
+}
+
+.span-suc{
+  padding: 15px 40px;
+  border-radius: 12px;
+  font-size: 20px;
+  color: white;
+}
+
+
+/*================= SHOW FILE==============================*/
+/* .table-hover tbody tr:hover {
+  background-color: #fbff00 !important; 
+  color: #0c5460;  
+} */
+
+a {
+  text-decoration: none;  /* حذف خط زیر */
+  color: inherit;         /* رنگ از والد بگیره */
+}
+
+ .row-hover:hover >*{
+  background-color: #fbff00 !important;
+}
+
+.my-tr >*{
+  background-color: #58e94bd0 !important; /* کرم روشن */
+}
+
+
+/*================= btn1 style==============================*/
+
+.btn1:link,
+.btn1:visited{
+  text-decoration: none;
+  text-transform:uppercase;
+  position:relative;
+  top:0;
+  left:0;
+  padding:20px 40px;
+  border-radius:100px;
+  display:inline-block;
+  transition: all .5s;
+}
+
+.btn1-white{
+  background:#fff;
+  color:#000;
+}
+
+.btn1:hover{
+   box-shadow:0px 10px 10px rgba(0,0,0,0.2);
+   transform : translateY(-3px);
+}
+
+.btn1:active{
+  box-shadow:0px 5px 10px rgba(0,0,0,0.2);
+  transform : translateY(-1px);
+}
+
+.btn1-bottom-animation-1{
+  animation:comeFromBottom 1s ease-out .8s;
+}
+
+.btn1::after{
+  content:"";
+  text-decoration: none;
+  text-transform:uppercase;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  border-radius:100px;
+  display:inline-block;
+  z-index:-1;
+  transition: all .5s;
+}
+
+.btn1-white::after {
+    background: #fff;
+}
+
+.btn1-animation-1:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@keyframes comeFromBottom{
+  0%{
+    opacity:0;
+    transform:translateY(40px);
+  } 
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ======================== side BAr ================= */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+    
+  height: 100vh;    
+  background: #24292d;
+  color: white;
+  padding: 20px;
+}
+
+.table-container {
+  
+  padding: 20px;
+}
+
+.btn-side{
+  width: 100%;
+  height: 50px;
+  padding-top: 2px;
+  font-family: 'IRANSans';
+}
+
+.suggestions{
+  text-align: right;
+  position: absolute;
+  width: 101%;
+  margin-top: 48px;
+  background: rgb(170, 250, 170);
+  /* border: 1px solid #ccc; */
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  border-radius: 7px !important;
+  box-shadow:0px 5px 10px rgba(0,0,0,0.1);
+  z-index:1000;
+}
+.suggestions div {
+  padding:15px;
+  cursor:pointer;
+  transition: background 0.3s ease;
+  font-size: 14px;
+  color:black;
+}
+.suggestions div:hover{
+  background:#007BFF;
+  color:white;
+}
+
+/* ======================== border line in show.html ================= */
+.bdl{
+  border-top: 3px solid rgb(218 232 15 / 66%);
+  width: 100%;
+  margin-top: 7px;
+}
+
+/* ======================== Loing Logut bar ================= */
+.tap{
+  background-color: #e2e2c5;
+  height: 35px;
+}
+
+.box{
+  margin-left: 21px;
+    /* margin-top: 15px; */
+    /* padding-top: 9px; */
+    font-weight: 600;
+}
+
+.box2{
+  height: 100%;
+  padding-top: 2px;
+}
+
+.box2:hover{
+  color: blue;
+}
+
+.box-row{
+  display: flex;
+  /* gap: 15px */}
+
+
+/* ======================== Responsive ================= */
+
+@media (max-width:800px){
+  .gird-container{
+    grid-template-columns:1fr;
+    grid-template-rows:auto;
+    row-gap: 18px;
+  }
+
+  .input-group-text {
+    width: 150px;
+  }
+
+  .main-title{
+    font-size: 27px;
+  }
+
+  .span-suc {
+    font-size: 16px;
+  }
+
+  #span{
+    font-size: 16px;
+  }
+  
+  .LStus .col-9 {
+    width: 100%;   /* همان col-12 */
+    /* flex: 0 0 100%; */
+    max-width: 100%;
+  }
+  .sidebar{
+    /* position: fixed; */
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: auto;
+    padding: 0px;
+    opacity: 0;
+    /* transform: translateY(-130%); 
+    transition: transform 0.5s ease; */
+    /* z-index: 1000; */
+    max-height: 0px;
+    transition: max-height 1s ease,
+                opacity 1s ease 0.2s;   
+  }
+
+  .sidebar.active {
+    /* transform: translateY(0);  */
+    opacity: 1;
+    max-height: fit-content;
+    height: auto;
+    padding: 10px
+  }
+
+  #title_show.col-9{
+    width: 100%;
+  }
+  .table-container.col-9{
+    width: 100%;
+  }
+  .main-title.par1{
+    margin-top: -5px;
+  }
+
+  #btn_bar{
+    display: block !important;
+    margin: 4px;
+  }
+}
