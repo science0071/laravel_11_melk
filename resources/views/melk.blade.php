@@ -1,6 +1,9 @@
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    @if (session('success'))
+    <meta http-equiv="refresh" content="1">
+    @endif
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -16,7 +19,7 @@
     <br>
 
     <!-- ############################## FORM ########################################### -->
-    <form action="#"  onsubmit="return Val()" method="POST">
+    <form action="{{route('melk-store')}}"  onsubmit="return Val()" method="POST">
       @csrf
       <div class="container">
           <div class="gird-container ">
@@ -62,7 +65,7 @@
     
     <!-- ############################## SHOW BTN ########################################### -->
      <div class="d-flex justify-content-center">
-        <a href="#" class="btn1 btn1-white btn1-animation-1 f-fa">
+        <a href="{{route('melk.show')}}" class="btn1 btn1-white btn1-animation-1 f-fa">
           نمایش اطلاعات
         </a> 
     </div>
