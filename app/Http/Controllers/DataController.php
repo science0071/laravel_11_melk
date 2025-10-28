@@ -26,7 +26,7 @@ class DataController extends Controller
 
       $saved_ids = [];
       if (Auth::check()) {
-          $saved_ids = DB::table('select')
+          $saved_ids = DB::table('selections')
               ->where('user_id', Auth::id())
               ->pluck('data_id') // فقط ستون data_id رو بگیر
               ->toArray();

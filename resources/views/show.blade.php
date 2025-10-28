@@ -15,6 +15,8 @@
 <body>
   <script src="{{ asset('js/tofa.js') }}"></script>
 
+
+
   <!-- ////////////////////==== Btn Bar ======//////////// -->
     <button id="btn_bar" class="btn btn-primary f-fa" style="display: none"  onclick="toggleSlide()">فیلتر ها</button>
 
@@ -37,7 +39,7 @@
         
         <div class="bdl"></div>
           <!-- @auth
-          <a onclick="" href="{{route('melk.myfav')}}" class=" btn btn-warning btn-side"  style="margin-top:10px; padding-top:11px"   >لیست ذخیره ها</a>
+          <a onclick="" href="#" class=" btn btn-warning btn-side"  style="margin-top:10px; padding-top:11px"   >لیست ذخیره ها</a>
         @endauth -->
       </div>
     </div>
@@ -171,16 +173,9 @@
           </td>
           <td class="farsi11"  data-area="{{ $i->area}}"> 
           </td>
-          <td class="farsi11">
-            <script>
-              //document.write(tofa(@json($i->price)));
-              document.write(tofa(@json($i->price)));
-          </script>
+          <td class="farsi11" data-price="{{ $i->price}}">
           </td>
-          <td class="farsi11">
-            <script>
-              document.write(tofa1(@json($i->year))); 
-          </script>
+          <td class="farsi11" data-year="{{ $i->year}}">>
           </td>
           <!-- @auth
           <td class="farsi11">
@@ -211,6 +206,14 @@
         document.querySelectorAll('td[data-area]').forEach(item => {
         let area = item.getAttribute('data-area');
         item.textContent = tofa(area);
+        });
+        document.querySelectorAll('td[data-price]').forEach(item => {
+        let price = item.getAttribute('data-price');
+        item.textContent = tofa(price);
+        });
+        document.querySelectorAll('td[data-year]').forEach(item => {
+        let year = item.getAttribute('data-year');
+        item.textContent = tofa1(year);
         });
     </script>
 
