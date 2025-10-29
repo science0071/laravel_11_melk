@@ -10,68 +10,99 @@
     <title>MELK</title>
 </head>
 <body>
-      @if(Auth::check())
-      <p>Welcome, {{ Auth::user()->name }}!</p>
-      <form method="POST" action="{{ route('logout') }}">
-          @csrf
-          <button type="submit">Logout</button>
-      </form>
-      @else
-      <a href="{{ route('login') }}">Login</a> |
-      <a href="{{ route('register') }}">Register</a>
-      @endif
+    <!-- ////////////////////==== Login Status ======//////////// -->
+      <div style="text-align: left" class="LStus">
+          <div class="tap col-12">
+            @if (Route::has('login'))
+                  @auth
+                  <div class="box-row ">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <div class="box2">
+                          <a href="" class="box farsi11"
+                            onclick="event.preventDefault(); this.closest('form').submit();">
+                            خروج
+                          </a>
+                        </div>
+                    </form>
+                    
+                        <div class="box2 farsi11">
+                          <a href="{{route('melk') }}" class="box">صفحه ثبت</a>
+                        </div>     
+                  </div>
+                  @endauth
+              @endif
+                
+                
+                <div class="box-row">
+                  @guest
+                  <div class="box2 farsi11">
+                    <a href="{{ route('login') }}" class="box">ورود</a>
+                  </div> 
+                
+        
+                  @if (Route::has('register'))
+                  <div class="box2 farsi11" >
+                    <a href="{{ route('register') }}" class="box">ثبت نام</a>
+                  </div>
+                  @endif
+                  @endguest
+                </div>
+          </div>
+      </div>
     <!-- ############################## TITLE ########################################### -->
-    <div class="col-8 container">
-      <h1 class="main-title f-fa">
-        ثبت اطلاعات ملک</h1>
-    </div>
+      <div class="col-8 container">
+        <h1 class="main-title f-fa">
+          ثبت اطلاعات ملک</h1>
+      </div>
     
-    <br>
+    
+      <br>
 
     <!-- ############################## FORM ########################################### -->
-    <form action="{{route('melk-store')}}"  onsubmit="return Val()" method="POST">
-      @csrf
-      <div class="container">
-          <div class="gird-container ">
-              <!-- ******** address INPUT ***************** -->
-              <div class="">
-                <div class="input-group">
-                  <span class="input-group-text btn btn-info f-fa">منطقه</span>
-                  <input id="address" name="address" type="text" class="form-control f-fa border-rad" >
+      <form action="{{route('melk-store')}}"  onsubmit="return Val()" method="POST">
+        @csrf
+        <div class="container">
+            <div class="gird-container ">
+                <!-- ******** address INPUT ***************** -->
+                <div class="">
+                  <div class="input-group">
+                    <span class="input-group-text btn btn-info f-fa">منطقه</span>
+                    <input id="address" name="address" type="text" class="form-control f-fa border-rad" >
+                  </div>
                 </div>
-              </div>
-              <!-- ******** AREA INPUT ***************** -->
-              <div class="">
-                <div class="input-group">
-                  <span class="input-group-text btn btn-info f-fa">متراژ (متر)</span>
-                  <input id="area"  type="text" class="form-control f-fa border-rad" placeholder="">
-                  <input id="area11" name="area" type="hidden" class="form-control" placeholder="">
+                <!-- ******** AREA INPUT ***************** -->
+                <div class="">
+                  <div class="input-group">
+                    <span class="input-group-text btn btn-info f-fa">متراژ (متر)</span>
+                    <input id="area"  type="text" class="form-control f-fa border-rad" placeholder="">
+                    <input id="area11" name="area" type="hidden" class="form-control" placeholder="">
+                  </div>
                 </div>
-              </div>
-              <!-- ******** PRICE INPUT ***************** -->
-              <div class="">
-                <div class="input-group">
-                  <span class="input-group-text btn btn-info f-fa">قیمت (تومان)</span>
-                  <input id="price"  type="text" class="form-control f-fa border-rad" placeholder="">
-                  <input id="price11" name="price" type="hidden" class="form-control" placeholder="">
+                <!-- ******** PRICE INPUT ***************** -->
+                <div class="">
+                  <div class="input-group">
+                    <span class="input-group-text btn btn-info f-fa">قیمت (تومان)</span>
+                    <input id="price"  type="text" class="form-control f-fa border-rad" placeholder="">
+                    <input id="price11" name="price" type="hidden" class="form-control" placeholder="">
+                  </div>
                 </div>
-              </div>
-              
-              <!-- ******** PRICE YEAR ***************** -->
-              <div class="">
-                <div class="input-group">
-                  <span class="input-group-text btn btn-info f-fa ">سال ساخت</span>
-                  <input id="year" name="year" type="text" class="form-control f-fa border-rad" placeholder="">
+                
+                <!-- ******** PRICE YEAR ***************** -->
+                <div class="">
+                  <div class="input-group">
+                    <span class="input-group-text btn btn-info f-fa ">سال ساخت</span>
+                    <input id="year" name="year" type="text" class="form-control f-fa border-rad" placeholder="">
+                  </div>
                 </div>
-              </div>
+            </div>
+            <br>
+            <div class="input-group justify-content-center">
+              <button name="sunmit" type="submit" class="btn btn-warning btn-lg f-fa col-2">ثبت</button>
+            </div>
+            <br>
           </div>
-          <br>
-          <div class="input-group justify-content-center">
-            <button name="sunmit" type="submit" class="btn btn-warning btn-lg f-fa col-2">ثبت</button>
-          </div>
-          <br>
-        </div>
-    </form>
+      </form>
     
     <!-- ############################## SHOW BTN ########################################### -->
      <div class="d-flex justify-content-center">

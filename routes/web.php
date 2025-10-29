@@ -5,8 +5,15 @@ use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DataController::class, 'index'])->name('melk');
-Route::post('/melk', [DataController::class, 'store'])->name('melk-store');
+Route::post('/', [DataController::class, 'store'])->name('melk-store');
 Route::get('/show', [DataController::class, 'show'])->name('melk.show');
+
+Route::get('autoSelec', [DataController::class, 'autoSelec'])->name('autoSelec');
+Route::get('melk.search',[DataController::class,'search'])->name('melk.search');
+Route::post('/toggle-select', [DataController::class, 'toggle'])->name('select.toggle');
+
+Route::get('myfav', [DataController::class, 'myfav'])->name('myfav');
+Route::post('remove', [DataController::class, 'remove'])->name('melk.remove');
 
 /*************************************** AUTH ***************************************************/
 Route::get('/login', [AuthController::class, 'showLoginForm']);

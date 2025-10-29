@@ -24,7 +24,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('melk');
+            return redirect()->route('melk.show');
         }
 
         return back()->withErrors(['email' => 'Invalid credentials.']);
