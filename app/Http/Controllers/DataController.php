@@ -50,12 +50,8 @@ class DataController extends Controller
       
    /* ====================== SESSIONS ===========================*/
       session(['price2' => $price2]);
-         // echo($price1);
-         // dd();
-            session(['url.intended.melk' => route('melk')]);
-            //dd(session('url.intended.melk'));
 
-            
+            session(['url.intended.melk' => route('melk')]);
             if (!auth::check()) {
                // ذخیره URL مقصد
                //وقتی کاربر لاگین نیست این سشن ذخیره میشه
